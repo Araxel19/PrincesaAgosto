@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Para Mi Princesa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Arial:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <style>
+        .track-title {
+            margin: 10px auto;
+            text-align: center;
+            font-size: 1rem;
+            color: #5a2d41;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .music-switch-btn {
+                right: 10px;
+                top: 50px;
+                font-size: 0.8em;
+                padding: 5px 8px;
+            }
+
+            .track-title {
+                font-size: 0.85rem;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix-hearts" id="matrixHearts"></div>
+
+    <div class="card">
+        <div class="header">
+            <h1>Feliz Primer Mes <br>Mi Princesa</h1>
+            <div class="date">01 de Agosto</div>
+        </div>
+        <button class="music-btn" id="musicBtn">♪</button>
+        <button class="music-switch-btn" id="switchBtn">🎧 Cambiar Canción</button>
+        <div id="trackTitle" class="track-title">🎵 Damiano David - The First Time</div>
+        <div class="photo-frame">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/qkc6n7qmwhcux6ewf65ko/Flores.png?rlkey=r58hlael09vcjjm4i0kiery16&st=hk6u0ubk&dl=0" alt="Ramo">
+        </div>
+
+        <p class="message" style="animation-delay: 0.3s;">
+            Hoy cumplimos nuestro primer mes... y ya eres parte de mi día a día.
+        </p>
+
+        <p class="message" style="animation-delay: 0.6s;">
+            A pesar de que no siempre hablemos mucho o nos veamos seguido, aquí seguimos, sumando momentos.
+        </p>
+
+        <button class="heart-btn" id="heartBtn">❤️ Presiona</button>
+
+        <div class="signature">Con cariño, de tu chico</div>
+    </div>
+
+    <div class="modal" id="letterModal">
+        <span class="close-btn" id="closeBtn">×</span>
+        <div class="modal-content">
+            <div class="torn-paper">
+                <h2 class="letter-title">Para Mi Princesa</h2>
+
+                <div class="letter-content">
+                    <p>Hola amor,</p>
+                    <p>Ya pasó un mes desde que empezamos esta historia, y aunque aún estamos conociéndonos, hay algo especial en ti que me hace sonreír incluso en silencio.</p>
+                    <p>No se trata de hablar todo el tiempo o de vernos a diario… se trata de saber que estamos, que nos elegimos.</p>
+                    <p>Tienes una forma única de mirar, tus ojitos hermosos dicen más de lo que muchas palabras podrían. Me atrapan, me tranquilizan, me gustan.</p>
+                    <p>No quiero sonar exagerado, pero sí sincero: estar contigo se siente bien, natural. Me inspiras ternura, admiración y paz.</p>
+                    <p>Gracias por dejarme ser parte de tus días, por estar y por todo lo bonito que hemos empezado a construir.</p>
+                    <p>Solo quiero que sepas que me importas… y que esto apenas comienza.</p>
+                </div>
+
+                <div class="letter-signature">Tu chico que te piensa más de lo que parece</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

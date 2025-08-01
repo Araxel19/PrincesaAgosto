@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    background: #000;
+    font-family: 'Arial', sans-serif;
+    color: #d3a2ff;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    min-height: 100vh;
+    overflow: auto;
+}
+
+/* Fondo de corazones */
+.matrix-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart-matrix {
+    position: absolute;
+    color: #ff6b9e;
+    font-size: 14px;
+    animation: fall linear infinite;
+    text-shadow: 0 0 4px #ff9ec6;
+}
+
+/* Ajuste responsivo de corazones */
+@media (min-width: 768px) {
+    .heart-matrix {
+        font-size: 18px;
+    }
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
+/* Tarjeta principal */
+.card {
+    width: 100%;
+    max-width: 460px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 18px;
+    border: 1px solid #ff80b6;
+    box-shadow: 0 0 20px rgba(255, 128, 182, 0.3);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+}
+
+/* Encabezado */
+.header {
+    margin-bottom: 12px;
+}
+
+h1 {
+    font-size: clamp(1.6rem, 5vw, 2.2rem);
+    background: linear-gradient(45deg, #ff6b9e, #ffb6d9);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 10px rgba(255, 107, 158, 0.25);
+    line-height: 1.3;
+}
+
+.date {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    color: #ffb6d9;
+}
+
+/* Foto circular */
+.photo-frame {
+    width: 130px;
+    height: 130px;
+    margin: 15px auto;
+    border-radius: 50%;
+    padding: 5px;
+    border: 3px solid transparent;
+    box-shadow: 0 0 10px #ff6b9e, inset 0 0 10px #ff6b9e;
+    animation: glow 2s infinite alternate;
+    overflow: hidden;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 8px #ff6b9e, inset 0 0 8px #ff6b9e; }
+    to { box-shadow: 0 0 16px #ff6b9e, inset 0 0 16px #ff6b9e; }
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Mensaje */
+.message {
+    font-size: clamp(1rem, 4vw, 1.1rem);
+    line-height: 1.6;
+    color: #ffd9e8;
+    max-width: 92%;
+    margin: 0 auto 16px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botón */
+.heart-btn {
+    background: transparent;
+    color: #ffcce0;
+    border: 2px solid #ff80b6;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 12px 0;
+    box-shadow: 0 0 10px rgba(255, 128, 182, 0.4);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-btn:hover {
+    background: rgba(255, 128, 182, 0.15);
+    box-shadow: 0 0 20px rgba(255, 128, 182, 0.7);
+}
+
+.heart-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(transparent, rgba(255, 182, 210, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -50%; }
+    100% { left: 150%; }
+}
+
+/* Firma */
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff80b6;
+    margin-top: 18px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+    text-shadow: 0 0 10px rgba(255, 128, 182, 0.4);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Botón música */
+.music-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 38px;
+    height: 38px;
+    font-size: 1rem;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid #ff80b6;
+    color: #ffcce0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(255, 128, 182, 0.3);
+    cursor: pointer;
+}
+
+.music-btn:hover {
+    background: rgba(255, 128, 182, 0.2);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 25px 15px;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.modal-content {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid #ff80b6;
+    box-shadow: 0 0 20px rgba(255, 128, 182, 0.4);
+    border-radius: 14px;
+    padding: 30px 20px;
+    color: #ffd6e5;
+    text-align: center;
+}
+
+.close-btn {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    background: rgba(0, 0, 0, 0.65);
+    border: 1px solid #ff80b6;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    color: #ffb6d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1100;
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    color: #ff80b6;
+}
+
+/* Contenido carta */
+.letter-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    margin-bottom: 20px;
+    color: #b388ff;
+    text-shadow: 0 0 12px rgba(255, 128, 182, 0.5);
+}
+
+.letter-content {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #ffcce0;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.letter-content p {
+    margin-bottom: 14px;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    text-align: right;
+    padding-right: 20px;
+    color: #ff80b6;
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    .photo-frame {
+        width: 120px;
+        height: 120px;
+    }
+
+    .message, .letter-content {
+        font-size: 0.95rem;
+    }
+
+    .letter-title, .signature, .letter-signature {
+        font-size: 1.8rem;
+    }
+}
